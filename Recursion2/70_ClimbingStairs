@@ -1,3 +1,4 @@
+//using Recursion
 class Solution {
 public:
     int climbStairs(int n) {
@@ -7,5 +8,19 @@ public:
        int when2= climbStairs(n-2);
         int ans=when1+when2;
         return ans;
+    }
+};
+//using Dynamic programming and memoisation
+class Solution {
+public:
+    int climbStairs(int n) {
+        if(n<3)return n;
+        int arr[n+1];
+        arr[1]=1;
+        arr[2]=2;
+        for(int i=3;i<n+1;i++){
+            arr[i]=arr[i-1]+arr[i-2];
+        }
+        return arr[n];
     }
 };
